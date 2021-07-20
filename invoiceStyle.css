@@ -1,0 +1,402 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+body{
+    background: #58687E;
+    font-family: Arial, Helvetica, sans-serif;
+        
+}
+
+#HRimg{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+}
+
+h3{
+    padding: 10px;
+    color: aliceblue;
+}
+h2{
+    text-align: center;
+    padding: 1rem;
+}
+
+.main-body{
+    background-color: #273D49CC;
+    display: block;
+    padding: 30px;
+    height: 500px;
+    position: absolute;
+    left:10px;
+    right: 10px;
+    border-radius: 10px;
+}
+
+.sub-header{
+    display: flex;
+    justify-content:flex-end;             
+    
+}
+
+.btn-add,.btn-edit,.btn-delete{
+    cursor: pointer;
+}
+.btn-add,.btn-edit,.btn-delete,.search{
+    padding: 6px;
+    margin-left: 10px;
+    background-color: #58687E;
+    color: #97A1A9;
+    border: 2px #97A1A9 solid;
+    border-radius: 5px;
+    outline: none;
+
+}
+
+.table-content{
+    width: 100%;
+    margin-top: 10px;
+       
+}
+
+table{
+    display: grid;
+    grid-template-columns: .5fr repeat(7,1.5fr);
+    width: 100%;
+    font-size: 0.8rem;
+    border-collapse: collapse;
+    color: #97A1A9;
+    text-align: center;
+           
+    
+}
+tr{
+    display: contents;
+   
+}
+
+tr:nth-child(even) {
+    background-color: #283a46;
+  }
+  
+th{
+    padding: 3px 15px;
+    margin: 5px;  
+    color: #FFFFFF;     
+    
+}
+
+td{
+    padding: 3px 15px;
+    margin: 5px;
+
+}
+
+
+thead,tbody{
+    display: contents;
+    
+} 
+
+.addmodal{
+  display: none;
+  position: fixed ;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 650px;
+  background: #2A3E4C;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  color: #97A1A9;
+  font-size: 0.8rem;
+  overflow: auto;
+  
+}
+
+
+.addmodal-header{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    color: #FFFFFF;
+}
+.closeadd,.closeEdit,.closeDelete{
+    font-size: 0.8rem;
+    cursor: pointer;
+    padding: 5px;
+  
+}
+.addInput{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cname,.cno,.incno,.incamt,.dt,.msg{
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+label{
+   padding-right: 10px;
+}
+
+.addmodal-body{
+    display: flex;
+    justify-content:space-between ;
+    padding-bottom: 10px;
+
+
+}
+
+.dateMsg{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.dt{
+    padding-bottom: 10px;
+}
+
+.addmodal-body input,textarea{
+    border-radius: 4px;
+    background-color: #58687E;
+    color: whitesmoke;
+    /* opacity: 0.5; */
+    outline: none;
+    border: none;
+}
+
+textarea{
+    height: 120px;
+}
+
+hr{
+    opacity: 0.5;
+    padding: 0%;
+    margin: 10px;
+}
+
+.modal-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#cancelAdd{
+    color: #14AFF1;
+    background:none;
+    text-align:center ;
+}
+#clearAdd{
+    border-radius: 5px;
+    padding: 5px 10px;
+    background-color: #2A3E4C;
+    border: #14AFF1 1px solid;
+    color: aliceblue;
+    cursor: pointer;
+
+}
+
+
+#addRecord{
+    border-radius: 5px;
+    padding: 5px 10px;
+    border: #14AFF1 1px solid;
+    background: #14AFF1;
+    color: aliceblue;    
+    
+}
+.disableAdd{
+    opacity: 0.2;
+    cursor: not-allowed;
+}
+
+
+#req{
+    color: #FF5E5E;
+    font-size: small;
+}
+
+
+
+.editModal{
+    display: none;
+    position: absolute ;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 280px;
+    background: #2A3E4C;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    color: #97A1A9;
+    font-size: 0.8rem;
+    overflow: hidden;
+    height: 60%;
+}
+
+.editheader{
+    display: flex;
+    justify-content: space-between;
+    color: #FFFFFF;
+}
+
+.editBody{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.editBody input{
+    background-color: #58687E;
+    outline: none;
+    border: none;
+    color: aliceblue;
+    font-size: small;
+    
+}
+.editModal-footer{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    align-items: center;
+}
+
+.editInvoiceAmt,.editNotes{
+    display: flex;
+    justify-content: space-between;
+   margin-top: 0.5rem;
+}
+
+#editReset{
+    border-radius: 5px;
+    padding: 3px;
+    background-color: #2A3E4C;
+    border: #14AFF1 1px solid;
+    color: aliceblue;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+#editSave{
+        border-radius: 5px;
+        padding: 3px;
+        border: #14AFF1 1px solid;
+        background: #14AFF1;
+        color: aliceblue;
+        cursor: pointer;
+    
+}
+
+
+.deleteModal{
+    display: none;
+    position: absolute ;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 320px;
+    background: #2A3E4C;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    color: #97A1A9;
+    font-size: 0.8rem;
+    overflow: hidden;
+    height: 220px;
+}
+
+.deleteHeader{
+    display: flex;
+    justify-content: space-between;
+    color: #FFFFFF;
+}
+
+.deletebody{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+#firstpara{
+    padding-bottom: 10px;
+}
+
+#redText{
+    color: #FF5E5E;
+    text-decoration: underline;
+    margin: 5px;
+}
+
+.deleteModal-footer{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.deleteModal-footer button{
+    margin: 10px;;
+}
+
+#deleteCancel{
+    background-color: #58687E;
+    outline: none;
+    border:#14AFF1 0.5px solid;
+    border-radius: 5px;
+    padding: 3px;
+    cursor: pointer;
+    color: aliceblue;
+    
+}
+
+#deleteDelete{
+    background-color: #14AFF1;
+    outline: none;
+    border:#14AFF1 0.5px solid;
+    border-radius: 5px;
+    padding: 3px;
+    cursor: pointer;
+    color: aliceblue;
+}
+
+.prevleft {
+    background-color: #14AFF1;
+    color: white;
+    border-style: none;
+    padding: 0.5rem;
+    border-radius: 10px;
+    font-size: xx-large;
+    position: absolute;
+    margin-left: 0;
+    top: 50%;
+    left: 0;
+    cursor: pointer;
+}
+  
+.nextright 
+{
+    background-color: #14AFF1;
+    color: white;
+    border-style: none;
+    padding: 0.5rem;
+    border-radius: 10px;
+    font-size: xx-large;
+    position: absolute;
+    margin-left: 0;
+    top: 50%;
+    right: 0;
+    cursor: pointer;
+}
+
+

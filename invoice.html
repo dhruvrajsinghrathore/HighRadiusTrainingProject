@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milestone 4</title>
+    <link rel="stylesheet" href="invoiceStyle.css">
+</head>
+<body>
+        <div class="main-header">
+            <img id=HRimg src="logo.png" alt="Logo">
+            <h3>Invoice list</h3>
+        </div>
+        <div class="main-body">
+            <div class="sub-header">
+                <button class="btn-add">+ Add</button>
+                <button class="btn-edit">Edit</button>
+                <button class="btn-delete">- Delete</button>
+                <input type="text" class="search" placeholder="Search">
+            </div>
+            <button class="prevleft" onclick="prevfunc()">&lt;</button>
+            <button class="nextright" onclick="nextfunc()">&gt;</button>
+            <!-- creating add Modal -->
+            <div class="addmodal">
+                  <div class="addmodal-header">
+                    <h2 class="addInvoice">Add Invoice</h2>
+                    <span class="closeadd">&times;</span>
+                  </div>
+                  <hr>
+                    <div class="addmodal-body">
+                        <div class="addInput">
+                            <div class="cname">
+                                <label>Customer Name <span id=req>*</span></label>
+                                <input type="text" name="customer-name" id="customerName">
+                            </div>
+                            <div class="cno">
+                                <label>Customer No. <span id=req>*</span></label>
+                                <input type="text" name="customer-no" id="customerNo">
+                            </div>
+                            <div class="incno">
+                                <label>Invoice No. <span id=req>*</span></label>
+                                <input type="number" name="invoice-no" id="invoiceNo">
+                            </div>
+                            <div class="incamt">
+                                <label>Invoice Amount <span id=req>*</span></label>
+                                <input type="number" name="invoice-amount" id="invoiceAmt">
+                            </div>
+                        </div>
+                        <div class="dateMsg">
+                            <div class="dt">
+                            <label>Due Date <span id=req>*</span></label>
+                            <input type="date" name="due-date" id="dueDt">
+                            </div>
+                            <div class="msg">
+                            <label>Message</label>
+                            <textarea name="Message" id="shortNote" cols="30" rows="10"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                  <div class="modal-footer">
+                        <div class="leftbtn">
+                            <a href=""><span id="cancelAdd">Cancel</span></a>
+                        </div>
+                        <div class="rightbtn">
+                            <button id="clearAdd">Clear</button>
+                            <button class = "disableAdd" id="addRecord" disabled>Add</button>
+                        </div>
+                  </div>
+                </div>
+
+                <!-- creating edit Modal -->
+                <div class="editModal">
+                    <div class="editheader">
+                        <h2 class="editInvoice">Edit Invoice</h2>
+                        <span class="closeEdit">&times;</span>
+                      </div>
+                      <hr>
+                      <div class="editBody">
+                        <div class="editInvoiceAmt">
+                            <label>Invoice Amount</label>
+                            <input type="text" name="invoice-amount" id="editIncAmt">
+                        </div>
+                        <div class="editNotes">
+                            <label >Notes</label>
+                            <textarea class="editNotes" id="changeNotes"></textarea>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="editModal-footer">
+                        <div class="editCancelbtn">
+                            <a href=""><span id="cancelAdd">Cancel</span></a>
+                        </div>
+                        <div class="editrightbtn">
+                            <button id="editReset">Reset</button>
+                            <button id="editSave">Save</button>
+                        </div>
+                  </div>
+                </div>
+
+                <!-- creating Delete Modal -->
+                <div class="deleteModal">
+                    <div class="deleteHeader">
+                        <h2 class="deleteInvoice">Delete record(s)?</h2>
+                        <span class="closeDelete">&times;</span>
+                    </div>
+                    <hr>
+                    <div class="deletebody">
+                        <p id="firstpara">You'll lose your record(s) after this action. we can't recover once you delete.</p>
+                        <p id="secondpara">Are you sure you want to <span id=redText>permanently delete</span> them?</p>
+                    </div>
+                    <div class="deleteModal-footer">
+                        <button id="deleteCancel">Cancel</button>
+                        <button id="deleteDelete">Delete</button>
+                    </div>
+                </div>
+              
+            
+
+            <div class="table-content">
+                <table>
+                    <thead>
+                        <tr class="table-heading">
+                                <th><input type="checkbox" id="All" onchange="selectAll()"></th>
+                                <th>Customer Name</th>
+                                <th>Customer #</th>
+                                <th>Invoice #</th>
+                                <th>Invoice Amount</th>
+                                <th>Due Date</th>
+                                <th>predicted Payment Date</th>
+                                <th>Notes</th>
+                        </tr>
+                    </thead >
+                    <tbody id='inside-table'>
+                       
+
+                    </tbody>
+                </table>
+            </div>
+            <div id="pagination-wrapper"></div>
+        </div>
+
+
+    <script src="./FetchData.json"></script>
+    <script src="invoiceFunc.js"></script>
+
+</body>
+</html>
